@@ -1,1 +1,1 @@
-# majuscule-js
+# Majuscule

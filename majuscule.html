@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="majuscule.js"></script>
+    <title>Majuscule JS</title>
+</head>
+<body>
+    <input type="text" id="word"><button onclick="meaning(document.querySelector('#word').value)">Meaning?</button>
+    <h1>[[word]]</h1>
+    <p>[[meaning]]</p>
+
+
+
+    <script type="text/javascript">
+
+        async function meaning(word){
+            universalPond.drop('word', word);
+
+            let datafromurl = fetch(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${word}`);
+            let response = await datafromurl
+            let data = await response.json();
+            let definition = await data[0]['meanings'][0]['definitions'][0]['definition']
+
+            universalPond.drop('meaning', definition)
+        }
+
+    </script>
+</body>
+</html>
