@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="majuscule.js"></script>
+    <script type="text/javascript" src="majuscule-variable.js"></script>
+    <script type="text/javascript" src="majuscule-events.js"></script>
     <title>Majuscule JS</title>
 </head>
-
 <body>
     <h1>[[ age + 10 - 3.2 ]]</h1>
     <h1>[[name.toUpperCase()]]</h1>
 
+    [% for i in names %]
+        <h1>Bro!</h1>
+    [% endfor %]
+
     <script type="text/javascript">
 
         universalPond.drop('age', 10);
-        universalPond.drop('name', 'shubham');
+        universalPond.drop('name', 'brainspoof');
+        universalPond.drop('names', ['Shubham', 'Bro', 'Nice', 'Amazing']);
 
     </script>
-
 </body>
 </html>
